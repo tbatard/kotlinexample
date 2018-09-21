@@ -12,5 +12,4 @@ class KotlinexampleApplicationTests {
 	@Test
 	fun contextLoads() {
 	}
-
 }

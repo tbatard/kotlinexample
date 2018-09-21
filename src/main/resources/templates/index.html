@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Kotlin Example</title>
+</head>
+<body>
+<div>
+  <form method="post" action="/">
+    <label>Cipher text</label>
+    <input type="text" name="input" width="300" />
+    <input type="submit" value="Encode" />
+  </form>
+  <div>
+    <h1>Ciphered result</h1>
+    <p th:text="${cipheredText}"></p>
+  </div>
+</div>
+</body>
+</html>

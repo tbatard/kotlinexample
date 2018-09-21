@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		kotlinVersion = '1.2.51'
+		kotlinVersion = '1.2.70'
 		springBootVersion = '2.0.5.RELEASE'
 	}
 	repositories {
@@ -36,15 +36,18 @@ compileTestKotlin {
 }
 
 repositories {
+	maven { url "http://dl.bintray.com/jetbrains/spek" }
 	mavenCentral()
 }
 
-
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
 	compile('com.fasterxml.jackson.module:jackson-module-kotlin')
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	compile("org.jetbrains.kotlin:kotlin-reflect")
 	runtime('org.springframework.boot:spring-boot-devtools')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.jetbrains.spek:spek-api:1.1.5')
+	testRuntime('org.jetbrains.spek:spek-junit-platform-engine:1.1.5')
 }
