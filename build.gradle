@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		kotlinVersion = '1.2.70'
+		kotlinVersion = '1.2.71'
 		springBootVersion = '2.0.5.RELEASE'
 	}
 	repositories {
@@ -48,6 +48,4 @@ dependencies {
 	compile("org.jetbrains.kotlin:kotlin-reflect")
 	runtime('org.springframework.boot:spring-boot-devtools')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('org.jetbrains.spek:spek-api:1.1.5')
-	testRuntime('org.jetbrains.spek:spek-junit-platform-engine:1.1.5')
 }

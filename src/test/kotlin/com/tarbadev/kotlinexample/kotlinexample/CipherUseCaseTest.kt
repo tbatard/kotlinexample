@@ -1,21 +1,21 @@
 package com.tarbadev.kotlinexample.kotlinexample
 
-import junit.framework.Assert.assertEquals
-import org.jetbrains.spek.api.Spek
-import org.jetbrains.spek.api.dsl.describe
-import org.jetbrains.spek.api.dsl.it
-import org.jetbrains.spek.api.dsl.on
+import org.junit.Assert.assertEquals
+import org.junit.Before
+import org.junit.Test
 
-class CipherUseCaseTest : Spek({
-    describe("CipherUseCase") {
-        val cipherUseCase = CipherUseCase()
+class CipherUseCaseTest {
+    private lateinit var cipherUseCase: CipherUseCase
 
-        on("execute with correct input") {
-            val ciphered = cipherUseCase.execute("abcdefghijklmnopqrstuvwxyz")
-
-            it("ciphers the input") {
-                assertEquals("bcdefghijklmnopqrstuvwxyza", ciphered)
-            }
-        }
+    @Before
+    fun setup() {
+        cipherUseCase = CipherUseCase()
     }
-})
+
+    @Test
+    fun cipherUseCase() {
+        val ciphered = cipherUseCase.execute("abcdefghijklmnopqrstuvwxyz")
+
+        assertEquals("bcdefghijklmnopqrstuvwxyza", ciphered)
+    }
+}
