@@ -5,9 +5,9 @@ import org.springframework.stereotype.Component
 const val ALPHABET = "abcdefghijklmnopqrstuvwxyz"
 
 @Component
-class CipherUseCase {
+class CipherUseCase(private val cipherHistoryRepository: CipherHistoryRepository) {
 
-    fun execute(input: String) : String {
+    fun execute(input: String) : CipheredValue {
         var ciphered = ""
 
         for (letter in input){
@@ -19,6 +19,10 @@ class CipherUseCase {
 
             ciphered += ALPHABET[index]
         }
-        return ciphered
+
+        val cipheredValue = CipheredValue(ciphered)
+        cipherHistoryRepository.save(cipheredValue)
+
+        return cipheredValue
     }
 }

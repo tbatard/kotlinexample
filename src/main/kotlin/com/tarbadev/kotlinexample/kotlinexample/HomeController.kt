@@ -18,9 +18,8 @@ class HomeController(private val cipherUseCase: CipherUseCase) {
 
     @PostMapping
     fun cipher(@RequestParam("input") input: String, redirectAttributes: RedirectAttributes): String {
-        println("input = $input")
         val ciphered = cipherUseCase.execute(input)
-        redirectAttributes.addFlashAttribute("cipheredText", ciphered)
+        redirectAttributes.addFlashAttribute("cipheredText", ciphered.value)
 
         return "redirect:/"
     }

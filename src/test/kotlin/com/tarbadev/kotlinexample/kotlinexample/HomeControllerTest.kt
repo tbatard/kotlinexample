@@ -34,8 +34,9 @@ class HomeControllerTest {
     fun cipher() {
         val input = "abcdef"
         val ciphered = "bcdefg"
+        val cipheredValue = CipheredValue(ciphered)
 
-        given(cipherUseCase.execute(input)).willReturn(ciphered)
+        given(cipherUseCase.execute(input)).willReturn(cipheredValue)
 
         mvc.perform(post("/")
                 .param("input", input)
